@@ -12,4 +12,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export default db = firebase.database();
+//const admin = require('firebase-admin');
+//const functions = require('firebase-functions');
+
+//admin.initializeApp(functions.config().firebase);
+
+//export default fs = admin.firestore();
+
+export default db = firebase;
+

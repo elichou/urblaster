@@ -12,6 +12,7 @@
     "@types/googlemaps": "^3.30.8",
     "expo": "^25.0.0",
     "firebase": "^4.12.0",
+    "firebase-admin": "^5.11.0",
     "firebase-tools": "^3.17.7",
     "react": "^16.2.0",
     "react-google-maps": "^9.4.5",

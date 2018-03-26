@@ -18,17 +18,17 @@ export default class LoginScreen extends React.Component {
 
 	onLoginPress() {
 
-		this.state({error: '', loading: true});
+		this.setState({error: '', loading: true});
 
-		const{email, password} = this.state;
-		db.auth().signInWithEmailAndPassword(email, password)
+		
+		db.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
 		.then( () => {
-			this.state({error: '', loading: false});
-			this.props.navigation.navigate(Profile);
+			this.setState({error: '', loading: false});
+			this.props.navigation.navigate('Profile');
 
 		})
 		.catch( () => {
-			this.state({error: 'authentification ratée', loading: false});
+			this.setState({error: 'authentification ratée', loading: false});
 
 		})
 	}
@@ -36,17 +36,18 @@ export default class LoginScreen extends React.Component {
 
 	onSignUpPress() {
 
-		this.state({error: '', loading: true});
+		this.setState({error: '', loading: true});
 
-		const{email, password} = this.state;
-		db.auth().signInWithEmailAndPassword(email, password)
+		
+		db.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
 		.then( () => {
-			this.state({error: '', loading: false});
-			this.props.navigation.navigate(Profile);
+			alert('Sign Up complete');
+			this.setState({error: '', loading: false});
+			this.props.navigation.navigate('Profile');
 
 		})
 		.catch( () => {
-			this.state({error: 'authentification ratée', loading: false});
+			this.setState({error: 'authentification ratée', loading: false});
 			
 		})
 	}
@@ -71,10 +72,10 @@ export default class LoginScreen extends React.Component {
 		return (
 		 <View>
 		 	<FormLabel>Email</FormLabel>
-			<FormInput onChangeText={email => this.state({email})}/>
+			<FormInput onChangeText={email => this.setState({email})}/>
 
 			<FormLabel>Password</FormLabel>
-			<FormInput onChangeText={password => this.state({password})}/>
+			<FormInput onChangeText={password => this.setState({password})}/>
 			{this.renderButtonLoading()}
 		</View>
 		);
