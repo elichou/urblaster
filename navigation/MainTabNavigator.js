@@ -12,16 +12,24 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import DiscoverScreen from '../screens/DiscoverScreen';
-import LoginScreen from '../screens/LoginScreen'
+import LoginScreen from '../screens/LoginScreen';
 
 export default TabNavigator(
   {
+   
+    Login: {
+      screen: LoginScreen,
+    },
+    
     Profile:{
       screen:ProfileScreen,
     },
-    Discover:{
+
+
+    Discover: {
       screen:DiscoverScreen,
     },
+
     /*
     Home: {
       screen: HomeScreen,
@@ -30,11 +38,6 @@ export default TabNavigator(
       screen: LinksScreen,
     },
     */
-
-    Login: {
-      screen: LoginScreen,
-    },
-    
 
     Settings: {
       screen: SettingsScreen,

@@ -1,22 +1,23 @@
-import React from 'react'
-import firebase from '../Firebase'
+import React from 'react';
 
-import {View, Button, Text} from 'react-native'
-import MainTabNavigator from '../navigation/MainTabNavigator'
-import { FormLabel, FormInput } from 'react-native-elements'
+import db from '../Firebase';
 
-var db = firebase.firestore()
+import {View, Button, Text} from 'react-native';
+import MainTabNavigator from '../navigation/MainTabNavigator';
+import { FormLabel, FormInput } from 'react-native-elements';
 
-export default class login extends React.Components {
+
+export default class LoginScreen extends React.Component {
 
 	constructor(props) {
 
 		super(props);
 		this.state = { email: '', password: '', error: '', loading: false};
-
+		//this.db = firebase.firestore();
 	}
 
 	onLoginPress() {
+
 		this.state({error: '', loading: true});
 
 		const{email, password} = this.state;
@@ -34,6 +35,7 @@ export default class login extends React.Components {
 
 
 	onSignUpPress() {
+
 		this.state({error: '', loading: true});
 
 		const{email, password} = this.state;
@@ -51,9 +53,9 @@ export default class login extends React.Components {
 
 	renderButtonLoading() {
 		if (this.state.loading) {
-			return <Text> Loading </Text >
+			return (<Text> Loading </Text >);
 		}
-		return <View>
+		return (<View>
 				<Button
 					onPress = {this.onLoginPress.bind(this)}
 					title= 'Login'/>  
@@ -61,23 +63,24 @@ export default class login extends React.Components {
 					onPress = {this.onSignUpPress.bind(this)}
 					title= ' Sign Up'/>
 				</View>
+				);
 	}
 
 
 	render() {
+		return (
 		 <View>
 		 	<FormLabel>Email</FormLabel>
 			<FormInput onChangeText={email => this.state({email})}/>
+
 			<FormLabel>Password</FormLabel>
 			<FormInput onChangeText={password => this.state({password})}/>
 			{this.renderButtonLoading()}
 		</View>
+		);
 
 	}
 
 
 
-
-
-
-}	
+};

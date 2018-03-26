@@ -1,8 +1,4 @@
-import * as firebase from 'firebase'
-
-// initialisation de firebase
-
-
+import * as firebase from 'firebase';
 
 const firebaseConfig = {
 	apiKey: "AIzaSyA_Vem0kCROFOem57TPFFjYoXprI_yw_HA",
@@ -11,8 +7,9 @@ const firebaseConfig = {
     projectId: "urblaster-first",
     storageBucket: "",
     messagingSenderId: "980442426711"
-}
+};
 
-firebase.initializeApp(firebaseConfig)
 
-export default firebase; 
+firebase.initializeApp(firebaseConfig);
+
+export default db = firebase.database();
