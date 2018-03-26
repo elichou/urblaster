@@ -2,10 +2,9 @@ import React from 'react';
 
 import db from '../Firebase';
 
-import {View, Button, Text} from 'react-native';
-import MainTabNavigator from '../navigation/MainTabNavigator';
+import {View, Button, Text, StyleSheet, ImageBackground } from 'react-native';
+import TabNavigator from '../navigation/MainTabNavigator';
 import { FormLabel, FormInput } from 'react-native-elements';
-
 
 export default class LoginScreen extends React.Component {
 
@@ -23,6 +22,7 @@ export default class LoginScreen extends React.Component {
 		
 		db.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
 		.then( () => {
+			alert('Sign in is complete')
 			this.setState({error: '', loading: false});
 			this.props.navigation.navigate('Profile');
 
@@ -69,19 +69,51 @@ export default class LoginScreen extends React.Component {
 
 
 	render() {
-		return (
-		 <View>
+		return ( 
+		<ImageBackground source={require('../assets/images/login_background.png')} 	
+		 	style={{width: 400, height: 750}}>
+		 <View style={styles.loginContainer} >
+		 	
 		 	<FormLabel>Email</FormLabel>
 			<FormInput onChangeText={email => this.setState({email})}/>
 
 			<FormLabel>Password</FormLabel>
 			<FormInput onChangeText={password => this.setState({password})}/>
 			{this.renderButtonLoading()}
+			
 		</View>
+		</ ImageBackground >
 		);
 
 	}
 
 
 
+
+
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#2c3e50',
+    },
+    loginContainer:{
+        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'center',
+        width : 380,
+        position: 	'absolute',
+        marginTop : 350,
+    },
+    logo: {
+        position: 'absolute',
+        width: 300,
+        height: 100
+    },
+    backgroundImage: {
+    	flex: 1,
+    	resizeMode : 'cover',
+    	marginTop: 100,
+    },
+ });

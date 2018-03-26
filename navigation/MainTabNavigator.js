@@ -17,10 +17,6 @@ import LoginScreen from '../screens/LoginScreen';
 export default TabNavigator(
   {
    
-    Login: {
-      screen: LoginScreen,
-    },
-    
     Profile:{
       screen:ProfileScreen,
     },
