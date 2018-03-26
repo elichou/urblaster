@@ -105,7 +105,7 @@ export default class LoginScreen extends React.Component {
 
 	renderButtonLoading() {
 		if (this.state.loading) {
-			return (<Text> Loading </Text >);
+			return (<Text > Loading </Text >);
 		}
 		return (<View>
 
@@ -119,7 +119,7 @@ export default class LoginScreen extends React.Component {
 				<View style ={styles.signupbutton}>
 				<Button
 					onPress = {this.onSignUpPress.bind(this)}
-					title= ' Sign Up'
+					title= ' Register'
 					color = '#FFFFFF'/>
 				</View>
 
@@ -147,7 +147,7 @@ export default class LoginScreen extends React.Component {
 	render() {
 		return ( 
 		<ImageBackground source={require('../assets/images/login_background.png')} 	
-		 	style={{width: 400, height: 750}}>
+		 	style={styles.backgroundImage2}>
 		<Image source= {require('../assets/images/logo_yellow_background.png')} style = {styles.backgroundImage}/>
 		 <View style={styles.logo}>
 		 <Text style = {styles.text}> Play around music. </Text>
@@ -219,6 +219,14 @@ const styles = StyleSheet.create({
     	
     	
     },
+    backgroundImage2: {
+    	position: 'absolute',
+  		top: 0,
+ 	 	left: 0,
+ 		bottom: 0,
+  		right: 0,
+    },
+
     facebookbutton: {
     	
     	
